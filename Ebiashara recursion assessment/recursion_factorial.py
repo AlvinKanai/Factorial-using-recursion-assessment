@@ -1,5 +1,5 @@
 """
-Python program to calculate Factorial using recursion
+Problem: Python program to calculate Factorial using recursion
 
 Recursion: Technique of making a function call itself to solve a computational problem.
 
@@ -8,19 +8,31 @@ Factorial: Product of all positive integers less than or equal to a given positi
 
 
 def recursion_factorial(num):
-    # checking whether the provided integer is 1 or 0
+    # Base case: Checking whether the provided integer is 1 or 0
     if num == 0 or num == 1:
         return 1
+
     else:
+        # recursive case
         return num*recursion_factorial(num-1)
 
 
-# user input
-num = int(input("Enter a number: "))
+# code execution when file is run as a script
+if __name__ == '__main__':
+    try:
+        # user input of type integer
+        num = int(input("Enter a number: "))
+    except ValueError:
+        raise Exception('The input is not a valid integer')
 
-# output and validation
-if num < 0:
-    print("There's no factorial for negative numbers")
-else:
-    # calling the function
-    print("The factorial of ", num, "is ", recursion_factorial(num))
+    #  Error handing for negative numbers
+    if num < 0:
+        raise Exception("Factorial for negative numbers does not exist")
+
+    # output and validation
+    try:
+        # calling the function
+        print("The factorial of ", num, "is ", recursion_factorial(num))
+    except:
+        # handles stack overflow error
+        raise Exception("Number is too large")
