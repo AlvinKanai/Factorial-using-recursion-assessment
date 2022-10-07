@@ -17,8 +17,7 @@ def recursion_factorial(num):
         return num*recursion_factorial(num-1)
 
 
-# code execution when file is run as a script
-if __name__ == '__main__':
+def factorial_from_user_input():
     try:
         # user input of type integer
         num = int(input("Enter a number: "))
@@ -36,3 +35,8 @@ if __name__ == '__main__':
     except:
         # handles stack overflow error
         raise Exception("Number is too large")
+
+
+# code execution when file is run as a script
+if __name__ == '__main__':
+    factorial_from_user_input()
